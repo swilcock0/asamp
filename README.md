@@ -19,7 +19,7 @@ Once COMPAS_FAB is installed, the package is ready to be installed:
 ```bash
 cd <package_base>
 pip install -r requirements.txt
-pip install -e .
+pip install .
 ```
 
 Once installed, test by running 
@@ -33,7 +33,7 @@ python
 
 Restart Rhino if open and open the examples/CleanPaper.gh file.
 
-## Using ROS functions/Python proxy 
-A version of ROS will be required running in parallel. One solution is to use a Docker image as indicated by [COMPAS_FAB](https://gramaziokohler.github.io/compas_fab/latest/backends/ros.html), ie. running `docker run -p 9090:9090 -t gramaziokohler/ros-base roslaunch rosbridge_server rosbridge_websocket.launch`. Personally I prefer having a more persistent system and have been testing using VMWare with Ubuntu16.04, ROS Kinetic and Moveit installed.
+## Using ROS functions
+A version of ROS will be required running in parallel. One solution is to use a Docker image as indicated by [COMPAS_FAB](https://gramaziokohler.github.io/compas_fab/latest/backends/ros.html), ie. running `docker run -p 9090:9090 -t gramaziokohler/ros-base roslaunch rosbridge_server rosbridge_websocket.launch`. Personally I prefer a Virtual Machine as it provides a more persistent system with better inbuilt display capabilities and have been testing using VMWare with Ubuntu16.04, ROS Kinetic and Moveit installed.
 
 

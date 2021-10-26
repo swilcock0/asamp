@@ -1,26 +1,5 @@
-#import sys
 import os
 import asamp.config as config
-
-# OUT_TO_FILE = True
-
-# if OUT_TO_FILE:
-#     sys.stdout = open(os.path.join(config.src_fldr, "dissassembly_log.txt"), 'w') # Change to 'a' for append
-
-#     import atexit
-#     from datetime import datetime
-
-#     load_time = datetime.now()
-#     dt_string = load_time.strftime("%d/%m/%Y %H:%M:%S")
-#     print("Logfile time: ", dt_string)
-
-#     @atexit.register
-#     def clean_stdout():
-#         # Ensure we clean up the logfile when the module is unloaded
-#         close_time = datetime.now()
-#         dt_string = close_time.strftime("%d/%m/%Y %H:%M:%S")
-#         print("Closing logfile at time: ", dt_string)
-#         sys.stdout.close()    
 
 import pickle
 import numpy as np

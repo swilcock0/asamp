@@ -1,3 +1,0 @@
-Logfile time:  26/10/2021 15:58:13
-Watching on d:\onedrive - university of leeds\_phd\ros\asamp\asamp
-Closing logfile...

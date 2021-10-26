@@ -12,7 +12,7 @@ except ModuleNotFoundError:
 
 
 # Data folders and locations
-src_fldr = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', "resources"))
+src_fldr = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), "resources"))
 reachmap = os.path.join(src_fldr, "pickles", "Reachmap.pickle")
 
 
