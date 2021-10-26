@@ -1,3 +1,3 @@
-include README.md
-
 recursive-include asamp/resources *.*
+include README.md
+include requirements.txt

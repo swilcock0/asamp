@@ -1,6 +1,6 @@
 # Assembly Sequencing and Motion Planning for Grasshopper
 
-![Reachability data with shell and robot silhouette](resources/image.png?raw=true)
+![Reachability data with shell and robot silhouette](https://github.com/swilcock0/asamp/blob/main/asamp/resources/image.png?raw=true)
 
 
 ## Activating the Python remote procedure calls in Grasshopper
