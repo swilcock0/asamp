@@ -296,7 +296,7 @@ class Assembly(object):
         #yield successful
         return 
 
-    def disassembly_tree(self, time_limit = 10, min_freedom=0, depth_mult=5):
+    def disassembly_tree(self, time_limit = 10, min_freedom=0, depth_mult=5, max_solutions=30):
         self.reset_assembly()
         start_time = time.time()
         end_time = time_limit
@@ -305,8 +305,8 @@ class Assembly(object):
         while time.time() - start_time < end_time:
             try:
                 elements = next(gen_diss)
-                if len(elements) > 1000: # For debugging limit to 1 solutions
-                    print("Stopping: Reached max num of solutions")
+                if len(elements) > max_solutions: # For debugging limit to 1 solutions
+                    print("Stopping: Reached max num of solutions (" + str(max_solutions) + ")")
                     break
             except StopIteration:
                 print("We must have found all disassemblies! Saving")
@@ -480,7 +480,7 @@ class Assembly(object):
         print(baseNode)
         labels = self.tree_convert_recurse(graph, baseNode)
         #graph.vs["label"] = labels
-        print(labels)
+        #print(labels)
         return graph, labels
 
     def plot_igraph(self, pyplot=False):

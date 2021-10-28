@@ -1,3 +1,12 @@
-Logfile time:  26/10/2021 15:58:13
+Logfile time:  27/10/2021 17:27:48
 Watching on d:\onedrive - university of leeds\_phd\ros\asamp\asamp
+Calling from disassembly module
+Loading directions...
+Initialised successfully
+Element num 0 = 56
+Element num 1 = 2
+Element num 2 = 27
+We must have found all disassemblies! Saving
+Time taken : 0 seconds
+0 possible disassemblies. Saving...
 Closing logfile...

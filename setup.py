@@ -20,8 +20,12 @@ setup(name='asamp',
         include_package_data=True,
         license="MIT",
             classifiers=[
+            "Development Status :: 2 - Pre-Alpha",
+            "Intended Audience :: Science/Research",
             "License :: OSI Approved :: MIT License",
+            "Natural Language :: English",
             "Programming Language :: Python :: 3",
             "Programming Language :: Python :: 3.9",
+            "Operating System :: Microsoft :: Windows",
         ],
      )
