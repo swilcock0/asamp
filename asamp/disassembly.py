@@ -206,6 +206,7 @@ class Assembly(object):
 
 
     def recursive_disassembler(self, state=None, base=None, fixed_base=True, successful=[], min_freedom=0, depth_mult=5):
+        self.attempts += 1
         if state == None:
             state = self.save_state()            
 
@@ -272,8 +273,8 @@ class Assembly(object):
                 #successful.append(new_node)
                 successful += [new_node]
                 new_node.set_success()
-                if len(successful) % 100 == 0:
-                    print("{} successes".format(len(successful)))
+                if len(successes) % 100 == 0:
+                    print("{} successes".format(len(successes)))
                 yield successful
                 return
             else:
@@ -302,10 +303,13 @@ class Assembly(object):
         end_time = time_limit
         gen_diss = self.recursive_disassembler(min_freedom=min_freedom, depth_mult=depth_mult)
         elements = []
+        self.attempts = 0
+        p = 0
         while time.time() - start_time < end_time:
             try:
+                p += 1
                 elements = next(gen_diss)
-                if len(elements) > max_solutions: # For debugging limit to 1 solutions
+                if len(elements) >= max_solutions: 
                     print("Stopping: Reached max num of solutions (" + str(max_solutions) + ")")
                     break
             except StopIteration:
@@ -316,12 +320,18 @@ class Assembly(object):
         if time.time() - start_time > end_time:
             print("Timed out at {} seconds".format(int(time.time() - start_time)))
 
-        print("{} possible disassemblies. Saving...".format(len(elements)))
+        print("{} possible disassemblies out of possible {}. Saving...".format(len(elements), self.attempts))
+        print("Took {} seconds".format(time.time()-start_time))
+        print(p)
         self.save_to_pickle(elements, self.tree_pickle)
+
+        self.tree = elements
+
+        # This is an old debug artifact
         for i in elements:
             #config_retrace(elements[i])
             if len(self.list_retrace(i)) != len(self.list_retrace(elements[0])):
-                self.list_retrace(elements[i])
+                print(self.list_retrace(elements[i]))
 
     def disassemble_loosest(self, fixed_base=True):
         """ 
@@ -454,6 +464,20 @@ class Assembly(object):
     """
     Tree display
     """
+    def random_section(self, baseNode, pct=0.1):
+        import random
+        for childNode in baseNode.children:
+            if random.random() < pct:
+                parent = baseNode
+                baseNode.children.remove(childNode)
+                while len(parent.children) == 0:
+                    parent_ = parent.parent
+                    parent_.children.remove(parent)
+                    parent = parent_
+
+            else:
+                self.random_section(childNode, pct=pct) 
+
 
     def tree_convert_recurse(self, graph, baseNode, baseID=0, labels=[]):
         #childID = baseID

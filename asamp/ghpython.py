@@ -72,9 +72,14 @@ def get_disassembly(n = 0, rebuild_tree=False, depth_mult=5):
     return elements,directions
 
 
-def reachmap():
+def reachmap(EEF=True):
     import pickle
-    with open(config.reachmap, "rb") as handle:
+    if EEF:
+        file = config.reachmap
+    else:
+        file = config.reachmapEEBase
+
+    with open(file, "rb") as handle:
         data = pickle.load(handle, encoding='latin1')
     return data
 
