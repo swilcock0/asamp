@@ -273,7 +273,7 @@ class Assembly(object):
                 #successful.append(new_node)
                 successful += [new_node]
                 new_node.set_success()
-                if len(successes) % 100 == 0:
+                if len(successful) % 100 == 0:
                     print("{} successes".format(len(successes)))
                 yield successful
                 return

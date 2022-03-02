@@ -1,3 +1,6 @@
-Logfile time:  01/03/2022 20:26:56
+Logfile time:  02/03/2022 03:40:51
 Watching on d:\onedrive - university of leeds\_phd\ros\asamp\asamp
+Calling from disassembly module
+Loading directions...
+Initialised successfully
 Closing logfile...
